@@ -1,6 +1,7 @@
 package main
 
 import (
+	"regexp"
 	"strconv"
 	"strings"
 )
@@ -38,4 +39,49 @@ func convertNumbers(word []string) []string {
 		}
 	}
 	return word
+}
+
+func fixQuotes(text string) string {
+	p1 := regexp.MustCompile(`\s+'`)
+	p2 := regexp.MustCompile(`'\s`)
+
+	text = p1.ReplaceAllString(text, "'")
+	text = p2.ReplaceAllString(text, "'")
+
+	text = strings.ReplaceAll(text, ":", ": ")
+
+	return text
+}
+
+func fixPunctuation(text string) string {
+
+	p1 := regexp.MustCompile(`\s+([?.,:;!]+)`)
+	p2 := regexp.MustCompile(`([?.,:;!]+)\s+`)
+
+	text = p1.ReplaceAllString(text, "$1 ")
+	text = p2.ReplaceAllString(text, "$1")
+	result := strings.Fields(text)
+	return strings.Join(result, " ")
+}
+
+func fixarticles(s string) string {
+	words := strings.Fields(s)
+	vowels := "aeiouhAEIOUH"
+
+	for i := 0; i < len(words); i++ {
+		if i < len(words) {
+			word := words[i]
+			if word == "a" && strings.ContainsAny(vowels, string(string(words[i+1][0]))) {
+				words[i] = "an"
+			} else if word == "A" && strings.ContainsAny(vowels, string(string(words[i+1][0]))) {
+				words[i] = "An"
+			} else if word == "an" && !strings.ContainsAny(vowels, string(string(words[i+1][0]))) {
+				words[i] = "a"
+			}
+		}
+
+	}
+
+	return strings.Join(words, " ")
+
 }
