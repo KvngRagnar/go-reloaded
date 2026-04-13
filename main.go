@@ -30,7 +30,7 @@ func main() {
 }
 
 func textProcessor(text string) string {
-	text = ConvertNumbers(text)
+	text = convertNumbers(text)
 	text = cases(text)
 	text = fixarticles(text)
 	text = strConvert(text)
