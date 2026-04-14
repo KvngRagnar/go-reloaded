@@ -12,12 +12,12 @@ func ToUpperLastWord(text []string) []string {
 		return text
 	}
 
-	lastIndex := len(text) - 1
+	b := len(text) - 1
 
-	if text[lastIndex] == "(up)" {
+	if text[b] == "(up)" {
 
-		text[lastIndex-1] = strings.ToUpper(text[lastIndex-1])
-		text = text[:lastIndex]
+		text[b-1] = strings.ToUpper(text[b-1])
+		text = text[:b]
 	}
 	return text
 }
