@@ -23,3 +23,17 @@ Handles basic string transformation
         If there are more than one word between the two ' ' marks, the program should place the marks next to the corresponding words (Ex: "As Elton John said: ' I am the most well-known homosexual in the world '" -> "As Elton John said: 'I am the most well-known homosexual in the world'")
 
     Every instance of a should be turned into an if the next word begins with a vowel (a, e, i, o, u) or a h. (Ex: "There it was. A amazing rock!" -> "There it was. An amazing rock!").
+
+
+
+    five transformations
+
+    1. A func that converts hex and bin to decimal numbers
+
+    2. A func that fixes punct. and either adds or remove white spaces after 
+
+    3. A func that fixies quotes and remove white spaces before and after
+
+    4. A func that appends "a" to consonants and "an" to vowels
+
+    5. A func that modifies cases (up, low, cap) and the instruction after them
