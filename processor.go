@@ -42,15 +42,23 @@ func convertNumbers(word []string) []string {
 }
 
 func fixQuotes(text string) string {
-	p1 := regexp.MustCompile(`\s+'`)
-	p2 := regexp.MustCompile(`'\s`)
+	// p1 := regexp.MustCompile(`\s+'`)
+	// p2 := regexp.MustCompile(`'\s`)
 
-	text = p1.ReplaceAllString(text, "'")
-	text = p2.ReplaceAllString(text, "'")
+	// text = p1.ReplaceAllString(text, "'")
+	// text = p2.ReplaceAllString(text, "'")
 
-	text = strings.ReplaceAll(text, ":", ": ")
+	// text = strings.ReplaceAll(text, ":", ": ")
 
-	return text
+	// return text
+
+	words := strings.Split(text, "'")
+	for i := range words {
+		if i%2 == 1 {
+			words[i] = strings.TrimSpace(words[1])
+		}
+	}
+	return strings.Join(words, "'")
 }
 
 func fixPunctuation(text string) string {
