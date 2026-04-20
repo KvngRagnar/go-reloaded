@@ -1,7 +1,6 @@
 # go-reloaded
 Handles basic string transformation
 
-
     Every instance of (hex) should replace the word before with the decimal version of the word (in this case the word will always be a hexadecimal number). (Ex: "1E (hex) files were added" -> "30 files were added")
 
     Every instance of (bin) should replace the word before with the decimal version of the word (in this case the word will always be a binary number). (Ex: "It has been 10 (bin) years" -> "It has been 2 years")
@@ -26,14 +25,11 @@ Handles basic string transformation
 
 
 
-    five transformations
+    Three transformations and a main file
 
-    1. A func that converts hex and bin to decimal numbers
+    1. A func that modifies cases (up, low, cap) and the instruction after them and converts hex and bin to decimal numbers
 
-    2. A func that fixes punct. and either adds or remove white spaces after 
+    2. A func that fixes punctuations and quotes and either adds or remove white spaces after 
 
-    3. A func that fixies quotes and remove white spaces before and after
+    3. A func that appends "a" to consonants and "an" to vowels
 
-    4. A func that appends "a" to consonants and "an" to vowels
-
-    5. A func that modifies cases (up, low, cap) and the instruction after them
