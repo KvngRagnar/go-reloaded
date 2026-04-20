@@ -30,12 +30,9 @@ func main() {
 }
 
 func textProcessor(text string) string {
-	text = convertNumbers(text)
 	text = cases(text)
-	text = fixarticles(text)
-	text = strConvert(text)
-	text = fixPunctuation(text)
-	text = fixQuotes(text)
+	text = punctQuote(text)
+	text = article(text)
 
 	return text + "\n"
 }
